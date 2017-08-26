@@ -1,0 +1,37 @@
+a, label {
+cursor: pointer;
+}
+.labelAlign {
+line-height: 2.5em;
+}
+.edgeInput {
+padding: 0px;
+}
+.video_player {
+height: 0px;
+padding-bottom: 56.25%;
+padding-top: 25px;
+position: relative;
+}
+.video_player iframe {
+height: 100%;
+left: 0px;
+position: absolute;
+top: 0px;
+width: 100%;
+}
+.placeholder {
+background: #ccc;
+position: relative;
+}
+.placeholder span {
+color: #666;
+font-size: 5em;
+position: absolute;
+width: 100px;
+height: 100px;
+left: 50%;
+top: 50%;
+margin-top: -50px;
+margin-left: -50px;
+}
