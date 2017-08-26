@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<title>Create CE Report</title>
+		
+		<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" href="css/ce_report.css" />
+		
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="node_modules/ckeditor/ckeditor.js"></script>
+
+		
+		<script>
+		function addEmail() {
+			var newEmail = $('#client_newEmail').val();
+			$('#client_newEmailList').append($('<option>', {
+			    value: newEmail,
+			    text: newEmail
+			}));
+			$('#client_newEmail').val("");
+		}
+		function removeEmail() {
+			$("#client_newEmailList option:selected").remove();
+		}
+		</script>
+		
+		
+	</head>
+	<body>
+		<div class="container">
+			<h1 style="line-height: 100px;"><img src="images/logo_100h.png" style="margin-right: 20px;"/>Create CE Report</h1>
+			<div class="row">
+				<div class="col-md-6">
+				
+					<label class="col-sm-3 control-label labelAlign" for="video_date">Choose Date</label>
+					<div class="col-sm-9 edgeInput">
+						<select id="video_date" class="form-control">
+							<option>2017-08-06</option>
+							<option>2017-08-05</option>
+							<option>2017-08-04</option>
+							<option>2017-08-03</option>
+							<option>2017-08-02</option>
+						</select>
+					</div>
+					
+					<label class="col-sm-12 control-label" for="video_files">Choose Video</label>
+					<select multiple class="form-control" id="video_files" size="12">
+						<option>1.mp4</option>
+						<option>2.mp4</option>
+						<option>3.mp4</option>
+						<option>4.mp4</option>
+						<option>5.mp4</option>
+					</select>
+					
+				</div>
+				
+				<div class="col-md-6 text-center">
+					
+					<h4>Video Preview</h4>
+					
+					<div id="video_preview" class="video_player placeholder">
+						
+						<span class="glyphicon glyphicon-play"></span>
+						
+						<!--<iframe width="100%" height="315" src="https://www.youtube.com/embed/nGfp5sRGxiE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+					</div>
+					
+					<input type="checkbox" id="video_autoplay" checked />
+					<label class="control-label" for="video_autoplay">Autoplay</label>
+					
+				</div>
+			</div>
+			
+			<hr />
+			
+			<div class="row">
+				
+				<div class="col-md-4">
+					<label class="control-label" for="client_list">Choose Client</label>
+					<select class="form-control" id="client_list">
+						<option value="0" selected disabled>Select Client</option>
+						<option value="1">Cecil, Max</option>
+						<option value="2">Imp, Katie</option>
+						<option value="3">Peterson, Matt</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<label class="control-label" for="client_newEmail">Add Additional Recipients</label>
+					<div class="col-sm-11 edgeInput">
+						<input class="form-control" id="client_newEmail" type="email" placeholder="parent@hockeystudents.biz" />
+					</div>
+					<a id="client_add" class="pull-right" onclick="addEmail()"><span class="glyphicon glyphicon-plus labelAlign"></span></a>
+					
+					<div style="padding-top: 10px; clear: both;">
+						<select multiple class="form-control" id="client_newEmailList">
+							
+						</select>
+					</div>
+					<div class="text-right">
+						<a id="client_remove" onclick="removeEmail()"><span class="glyphicon glyphicon-minus labelAlign"></span></a>
+					</div>
+					
+				</div>	
+				
+				<div class="col-md-4">
+					<label class="control-label">Choose Tip for Report</label>
+					
+					<ul class="list-unstyled">
+						<li><input type="radio" name="report_tip" value="tip_1" id="tip_1" /> <label class="control-label" for="tip_1">Hockey Tip #1</label></li>
+						<li><input type="radio" name="report_tip" value="tip_2" id="tip_2" /> <label class="control-label" for="tip_2">Hockey Tip #2</label></li>
+						<li><input type="radio" name="report_tip" value="tip_3" id="tip_3" /> <label class="control-label" for="tip_3">Hockey Tip #3</label></li>
+					</ul>
+										
+				</div>				
+				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<label class="control-label">Additional Notes</label>
+					
+					<textarea name="report_additionalNotes"></textarea>
+					<script>
+		                CKEDITOR.replace( 'report_additionalNotes' );
+		            </script>				
+				</div>	
+			</div>
+			
+			<hr />
+			
+			<div class="row">
+				<div class="col-md-12 text-right">
+					<button class="btn btn-success btn-large pull-right">Send Report</button>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>
